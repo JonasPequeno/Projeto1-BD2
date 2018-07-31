@@ -25762,6 +25762,10 @@ ion-navbar.toolbar {
   font-weight: 300;
 }
 
+#map {
+  height: 100%;
+}
+
 page-login .bg-login {
   width: 100%;
   height: 100%;

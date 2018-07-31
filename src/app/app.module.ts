@@ -16,6 +16,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 //provides 
 import { AuthProvider } from '../provides/auth';
 import { FirebaseProvider } from '../provides/firebase';
+import {  Geolocation } from "@ionic-native/geolocation";
 
 
 
@@ -46,7 +47,8 @@ import { MyApp } from './app.component';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    FirebaseProvider
+    FirebaseProvider,
+    Geolocation
   ]
 })
 export class AppModule {}
