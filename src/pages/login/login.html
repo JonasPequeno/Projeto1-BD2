@@ -1,0 +1,118 @@
+<ion-content>
+    <!--Background-->
+  <div class="bg-login" *ngIf="login">
+      <div class="overlay">  
+        <!--Container-->
+        <div>    
+  
+          <!--Logo-->
+          <div class="center">
+              <img src="/assets/imgs/logoMaps.png" class="logo pd-top-20">
+          </div>     
+          <!--Textos--> 
+          <div class="mg-top-40 ">
+            <!--Titulo--> 
+            <h5 class="snow center bold no-margin">Que bom te ver aqui!</h5>
+            <!--SubTitulo--> 
+            <p class="center snow ligth no-margin mg-top-5">Entre com sua conta para continuar</p>          
+          </div>
+          <!--forms--> 
+          <div class="padding-40">
+
+            <ion-item class="bg-tranparente">
+              <ion-label stacked class="bold snow no-padding mg-top-40">
+                Email
+              </ion-label>
+              <ion-input type="email" class="snow"  [(ngModel)]="loginForm.email"></ion-input>
+            </ion-item>
+            
+            <ion-item class="bg-tranparente">
+              <ion-label stacked class="snow bold no-padding mg-top-10" >
+                Senha
+              </ion-label>
+              <ion-input type="password" class="snow" [(ngModel)]="loginForm.senha"></ion-input>
+            </ion-item>
+            <div class="ctaLogin center bolde mg-top-30" (click)="fazerLogin()"> 
+                Login
+            </div>
+    
+            <div class=" snow bold center mg-top-20" (click)="criaConta()">
+                Criar uma nova conta de acesso
+            </div>
+
+         </div>
+  
+        </div>
+        <!--Fim do Container-->
+      </div>
+  </div>
+  <!--Background-->  
+
+  
+  <!--Resgistro -->
+
+  <!--Background-->
+  <div class="bg-registro" *ngIf="registro">
+      <div class="overlay">  
+        <!--Registro container-->
+        <div>    
+  
+          <!--Logo-->
+          <div class="center">
+              <img src="/assets/imgs/logoMaps.png" class="logo pd-top-20">
+          </div>     
+          <!--Textos--> 
+          <div class="mg-top-40 ">
+            <!--Titulo--> 
+            <h5 class="snow center bold no-margin">Éba! Vamos lá!</h5>
+            <!--SubTitulo--> 
+            <p class="center snow ligth no-margin mg-top-5">
+              Crie suas credenciais para acessar o app
+            </p>          
+          </div>
+          <!--forms--> 
+          <div class="padding-40">
+              <ion-item class="bg-tranparente">
+                  <ion-label stacked class="bold snow no-padding mg-top-40" >
+                    Qual é o seu nome
+                  </ion-label>
+                  <ion-input type="email" class="snow" [(ngModel)]="registerForm.nome"></ion-input>
+                </ion-item>
+
+            <ion-item class="bg-tranparente">
+              <ion-label stacked class="bold snow no-padding mg-top-30" >
+                Qual é a sua instituição
+              </ion-label>
+              <ion-input type="text" class="snow" [(ngModel)]="registerForm.instituicao"></ion-input>
+            </ion-item>
+
+            <ion-item class="bg-tranparente">
+              <ion-label stacked class="bold snow no-padding mg-top-30" >
+                Qual é o seu curso
+              </ion-label>
+              <ion-input type="text" class="snow" [(ngModel)]="registerForm.curso"></ion-input>
+            </ion-item>
+
+            <ion-item class="bg-tranparente">
+              <ion-label stacked class="snow bold no-padding mg-top-30" >
+                Escolha a sua senha
+              </ion-label>
+              <ion-input type="password" class="snow" [(ngModel)]="registerForm.senha"></ion-input>
+            </ion-item>
+            
+            <div class="ctaRegistrar center bolde mg-top-30" (click)="fazerCadastro()">
+              Cadastrar
+            </div>
+  
+            <div class=" snow bold center mg-top-20" (click)="acesaConta()">
+              Já tenho uma conta
+            </div>
+         </div>
+  
+        </div>
+        <!--Fim do Container-->
+      </div>
+  </div>
+  <!--Background-->  
+  </ion-content>
+ 

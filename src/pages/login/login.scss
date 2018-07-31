@@ -1,0 +1,42 @@
+page-login {
+    .bg-login {
+        width: 100%;
+        height: 100%;
+        background-image: url('/assets/imgs/background.jpg');
+        background-size: cover;
+        background-position: center;
+    };
+    .bg-registro {
+        width: 100%;
+        height:100;
+        background-image: url('/assets/imgs/background.jpg');
+        background-size: cover;
+        background-position: center;
+    }
+    .overlay {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top,rgba(0,0,0,0.984), rgba(0,0,0,0.783),rgba(0,0,0,0.716))
+    }
+    .logo {
+        width: 30%;
+        
+    }
+    .bg-tranparente {
+        background: transparent;
+    }
+
+    .ctaLogin {
+        padding: 10px;
+        border-radius: 100px;
+        background: $snow;
+        color: purple;
+    }
+    .ctaRegistrar {
+        padding: 10px;
+        border-radius: 100px;
+        background: $snow;
+        color: orange;
+
+    }
+}

@@ -1,0 +1,89 @@
+.purple{
+    color :$purple;
+}
+.orage{
+    color:$orange;
+}
+
+.dark {
+    color: $dark;
+}
+.snow {
+    color: $snow;
+}
+
+.gray{
+    color: $gray;
+}
+
+//alinhamento
+.center {
+    text-align: center;
+}
+
+//margens pre definidas
+
+.no-margin {
+    margin: 0px;
+}
+.mg-top-5 {
+    margin-top: 5px;
+}
+
+
+.mg-top-10 {
+    margin-top: 10px;
+}
+.mg-top-20 {
+    margin-top: 10px;
+}
+
+.mg-top-30{
+    margin-top: 30px;
+}
+
+
+.mg-top-40 {
+    margin-top: 40px;
+}
+
+//padding definidos
+
+.no-padding {
+    padding: 0px;
+}
+
+.pd-top-5 {
+    padding-top: 5px;
+}
+
+
+.pd-top-10 {
+    padding-top: 10px;
+}
+.pd-top-20 {
+    padding-top: 20%;
+}
+
+.pd-top-30{
+    padding-top: 30px;
+}
+
+
+.pd-top-40 {
+    padding-top: 40px;
+}
+
+.padding-40 {
+    padding: 40px;
+}
+
+
+//estilos 
+.bold {
+    font-weight: 700;
+}
+
+.ligth {
+    font-weight: 300;
+}
