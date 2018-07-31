@@ -12,7 +12,7 @@
           <!--Textos--> 
           <div class="mg-top-40 ">
             <!--Titulo--> 
-            <h5 class="snow center bold no-margin">Que bom te ver aqui!</h5>
+            <h5 class="snow center bold no-margin">Let's Go Events</h5>
             <!--SubTitulo--> 
             <p class="center snow ligth no-margin mg-top-5">Entre com sua conta para continuar</p>          
           </div>
@@ -76,8 +76,15 @@
                   <ion-label stacked class="bold snow no-padding mg-top-40" >
                     Qual é o seu nome
                   </ion-label>
-                  <ion-input type="email" class="snow" [(ngModel)]="registerForm.nome"></ion-input>
+                  <ion-input type="text" class="snow" [(ngModel)]="registerForm.nome"></ion-input>
                 </ion-item>
+
+            <ion-item class="bg-tranparente">
+                <ion-label stacked class="bold snow no-padding mg-top-40" >
+                  Qual é o seu email
+                </ion-label>
+                <ion-input type="email" class="snow" [(ngModel)]="registerForm.email"></ion-input>
+            </ion-item>
 
             <ion-item class="bg-tranparente">
               <ion-label stacked class="bold snow no-padding mg-top-30" >

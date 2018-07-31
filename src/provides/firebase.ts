@@ -10,6 +10,6 @@ export class FirebaseProvider {
     postUser( user ) {
         console.log('usario recebido ' +user);
         //setando o usuario na coleção users com o uid
-        this.afs.collection("users").doc(user.uid).set(user);
+        this.afs.collection("users").doc(user.uid).set(user);       
     }
 }

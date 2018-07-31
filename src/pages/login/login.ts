@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthProvider } from '../../provides/auth';
 import { FirebaseProvider } from "../../provides/firebase";
 import { LoadingController } from 'ionic-angular';
+import { HomePage } from '../home/home';
 
 @IonicPage()
 @Component({
@@ -43,6 +44,7 @@ fazerLogin () {
   .then((res) =>{    
     load.dismiss();
     console.log(res);
+    this.navCtrl.push(HomePage);
     
   })
   .catch((err) =>{
@@ -56,16 +58,22 @@ fazerCadastro() {
   this.afProvider.resgister(this.registerForm)
   .then((res)=>{
     let uid = res.user.uid;
+    console.log('usuario criado ' + res.user);
+    
     //cria um novo objeto e grava no fireStorage
     let user = {
       uid : uid,
       nome : this.registerForm.nome,
       email : this.registerForm.email,
+      instituicao : this.registerForm.instituicao,
+      curso : this.registerForm.curso
     }
     this.fireProvader.postUser(user);
     load.dismiss();  
   })
-  .catch(()=> {
+  .catch((err)=> {
+    console.log(err);
+    
     load.dismiss();    
   })
 }
