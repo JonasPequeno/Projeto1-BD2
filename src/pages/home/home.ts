@@ -14,7 +14,6 @@ export class HomePage {
   private evento = {titulo : '', periodo : '', tema : '', local : ''};
   private endereco;
 
-
   constructor(public navCtrl: NavController, public platform : Platform,
     public geolocation : Geolocation,
     //public modalPage : MapModalPage,
@@ -54,7 +53,13 @@ export class HomePage {
         position : latLng,
       });
 
+      //evento de click
+      this.map.addListener('click', ((e) =>{
+         this.criaMarcador(e);
+      }));
+
       marcador.setMap(this.map);    
+      //verificar se ta pegando o endereco correto
       this.getEndereco(latLng, function(res){
         console.log(res);
         
@@ -62,7 +67,6 @@ export class HomePage {
       
 
     }
-
 
     private getEndereco (latLng, successCallBack) {
         //pega o endereço da minha posição atual
@@ -77,6 +81,18 @@ export class HomePage {
           }
         })
       }
+    
+    public criaMarcador (event) {
 
+      this.getEndereco(event.latLng , endereco => {
+        this.endereco = endereco;
+
+        let marcador = new google.maps.Marker({
+          position : event.latLng,
+          map : this.map,
+          title : 'Novo Marcador'
+        });
+      })
+    }
     
 }

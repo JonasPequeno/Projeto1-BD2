@@ -4,14 +4,15 @@ import { AuthProvider } from '../../provides/auth';
 import { FirebaseProvider } from "../../provides/firebase";
 import { LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
+import {MyApp} from '../../app/app.component';
 
 @IonicPage()
+
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
 })
 export class LoginPage {
-
   private login : boolean = true;
   private registro : boolean = false;
   private loginForm = {email : '', senha : ''};
@@ -33,8 +34,7 @@ criaConta () {
 
 acesaConta() {
   this.login = true;
-  this.registro = false;
-  
+  this.registro = false;  
 }
 
 fazerLogin () {
@@ -44,8 +44,7 @@ fazerLogin () {
   .then((res) =>{    
     load.dismiss();
     console.log(res);
-    this.navCtrl.push(HomePage);
-    
+    this.navCtrl.setRoot(HomePage);
   })
   .catch((err) =>{
     load.present();

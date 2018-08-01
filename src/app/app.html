@@ -1,1 +1,11 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content] = "menu">
+    <ion-content>
+        <ion-list>
+            <button ion-item menuClose>Perfil</button>
+            <button ion-item menuClose (click)="trocaPagina(home)" >Meus Eventos</button>
+            <button ion-item menuClose (click)="trocaPagina(sair)">Sair</button>
+        </ion-list>    
+    </ion-content>
+</ion-menu>
+
+<ion-nav #menu [root]="rootPage"></ion-nav>

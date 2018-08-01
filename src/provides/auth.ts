@@ -15,4 +15,9 @@ export class AuthProvider {
     login (data) {
         return this.afAuth.auth.signInWithEmailAndPassword(data.email, data.senha);
     }
+
+    //sair 
+    logout() {
+        return this.afAuth.auth.signOut();
+    }
 }

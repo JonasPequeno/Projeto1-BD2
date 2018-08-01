@@ -18,8 +18,6 @@ import { AuthProvider } from '../provides/auth';
 import { FirebaseProvider } from '../provides/firebase';
 import {  Geolocation } from "@ionic-native/geolocation";
 
-
-
 import { MyApp } from './app.component';
 
 @NgModule({
@@ -38,7 +36,6 @@ import { MyApp } from './app.component';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
     HomePage
 
   ],
@@ -51,4 +48,6 @@ import { MyApp } from './app.component';
     Geolocation
   ]
 })
-export class AppModule {}
+export class AppModule {
+  
+}
