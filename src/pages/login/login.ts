@@ -43,7 +43,7 @@ fazerLogin () {
   this.afProvider.login(this.loginForm)
   .then((res) =>{    
     load.dismiss();
-    console.log(res);
+    console.log(res.user.email);
     this.navCtrl.setRoot(HomePage);
   })
   .catch((err) =>{
@@ -55,8 +55,9 @@ fazerCadastro() {
   let load = this.loadCrtl.create();
   load.present();
   this.afProvider.resgister(this.registerForm)
+  
   .then((res)=>{
-    let uid = res.user.uid;
+    let uid = res.user.uid;    
     console.log('usuario criado ' + res.user);
     
     //cria um novo objeto e grava no fireStorage

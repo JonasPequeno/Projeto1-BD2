@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, Platform, ViewController, ModalController} from 'ionic-angular';
+import { NavController, Platform, ViewController, ModalController, NavParams, Alert} from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
-//import { MapModalPage } from '../modal/mapModalPage';
+import {EventoModalPage} from '../evento-modal/evento-modal';
+import { EventosProvider } from '../../provides/eventos';
+import { IfStmt } from '@angular/compiler';
+import { AuthProvider } from '../../provides/auth';
 
 declare var google : any;
 
@@ -11,15 +14,17 @@ declare var google : any;
 })
 export class HomePage {
   private map : any;
-  private evento = {titulo : '', periodo : '', tema : '', local : ''};
+  private evento = {id: '' , titulo : '', periodo : '', tema : '', local : '', usario : ''};
   private endereco;
 
   constructor(public navCtrl: NavController, public platform : Platform,
     public geolocation : Geolocation,
-    //public modalPage : MapModalPage,
-
+    public navParms : NavParams,
+    public eventProvider : EventosProvider,  
     public modalCrtl : ModalController,
-    public viewController : ViewController 
+    public viewController : ViewController,
+    public afProvider : AuthProvider
+
   ) {}
 
   ngOnInit(){
@@ -34,18 +39,21 @@ export class HomePage {
         console.log(err);
       })
     })
+    this.eventProvider.getEventos();
   }
 
   private initMap(lat, lng){
-    let latLng = new google.maps.LatLng(lat,lng);
+    
+    let latLng = new google.maps.LatLng(lat,lng);    
 
-      let opcoes = {
+    let opcoes = {
         center: latLng,
         zoom : 18,
         //mapTypeId : google.maps.mapTypeId.ROADMAP
         disableDefaultUI : true
         //mapTypeId:google.maps.MapTypeId.SATELLITE,
       };
+
       let elemento = document.getElementById('map');
       this.map = new google.maps.Map(elemento,opcoes);
 
@@ -54,8 +62,25 @@ export class HomePage {
       });
 
       //evento de click
-      this.map.addListener('click', ((e) =>{
-         this.criaMarcador(e);
+      this.map.addListener('click', ((e) =>{      
+         let modal = this.modalCrtl.create(EventoModalPage);
+         modal.onDidDismiss(data =>{
+           if(data) {
+            this.criaMarcador(e);   
+            this.getEndereco(e.latLng , local =>{            
+                let locali : string = ""+local.geometry.location;
+                data.local = locali;
+                let emailUser = this.afProvider.getEmailUser();
+                alert(emailUser);
+                data.usuario = emailUser;
+                this.eventProvider.postEvento(data)
+                .then((res) =>{
+                 alert(res);
+              })     
+            })                 
+           }       
+         })
+         modal.present();
       }));
 
       marcador.setMap(this.map);    
@@ -63,7 +88,7 @@ export class HomePage {
       this.getEndereco(latLng, function(res){
         console.log(res);
         
-      });
+      });    
       
 
     }
@@ -76,7 +101,7 @@ export class HomePage {
           if( status === google.maps.GeocoderStatus.OK) {
             console.log('entrou no if');
             if(results[0]) {
-              successCallBack(results[0].formatted_address)
+              successCallBack(results[0])
             }
           }
         })

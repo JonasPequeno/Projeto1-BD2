@@ -7,6 +7,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { LoginPageModule } from '../pages/login/login.module';
 import { RegistroPageModule } from '../pages/registro/registro.module';
 import { HomePage } from  '../pages/home/home';
+import { EventoModalPage } from '../pages/evento-modal/evento-modal';
+import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
 //importações do firebase e angular fire
 import { firebaseConfig } from '../configs/firebase';
 import { AngularFireModule } from 'angularfire2';
@@ -17,13 +19,16 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthProvider } from '../provides/auth';
 import { FirebaseProvider } from '../provides/firebase';
 import {  Geolocation } from "@ionic-native/geolocation";
+import { EventosProvider } from '../provides/eventos';
 
 import { MyApp } from './app.component';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    EventoModalPage,
+    MeusEventosPage
   ],
   imports: [
     LoginPageModule,
@@ -36,7 +41,9 @@ import { MyApp } from './app.component';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    HomePage
+    HomePage,
+    EventoModalPage,
+    MeusEventosPage
 
   ],
   providers: [
@@ -45,6 +52,7 @@ import { MyApp } from './app.component';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
     FirebaseProvider,
+    EventosProvider,
     Geolocation
   ]
 })

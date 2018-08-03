@@ -8,8 +8,12 @@ export class AuthProvider {
     //create user 
     resgister(data) {
         return this.afAuth.auth.createUserWithEmailAndPassword(data.email, data.senha);
-        
     }
+
+    getEmailUser() {
+        return this.afAuth.auth.currentUser.uid;    
+    }
+    
 
     //login 
     login (data) {
@@ -20,4 +24,5 @@ export class AuthProvider {
     logout() {
         return this.afAuth.auth.signOut();
     }
+
 }

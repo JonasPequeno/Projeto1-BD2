@@ -1,0 +1,55 @@
+<ion-header>
+    <ion-navbar>
+       <ion-buttons start>
+           <button (click)="cancel()">
+               <ion-icon name="close"></ion-icon>
+           </button>
+       </ion-buttons>
+       <ion-title>Criar Evento</ion-title>
+    </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list  class="bold">
+        <ion-item>
+            <ion-label floating >Titulo</ion-label>
+            <ion-input type="text" [(ngModel)]="evento.titulo"></ion-input>
+        </ion-item> 
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-item col-md-6>
+                        <ion-label floating>Horario Inicio</ion-label>
+                        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.horaInicio"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+                <ion-col>
+                    <ion-item col-md-6>
+                        <ion-label floating>Horario Fim</ion-label>
+                        <ion-datetime displayFormat="h:mm A" pickerFormat="h mm A" [(ngModel)]="evento.horaFim"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-md-6>
+                    <ion-item>
+                        <ion-label floating>Data Inicio</ion-label>
+                        <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="evento.dataInicio"></ion-datetime>
+                    </ion-item>
+                </ion-col>
+                <ion-col col-md-6>
+                        <ion-item>
+                            <ion-label floating>Data Fim</ion-label>
+                            <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="evento.dataFim"></ion-datetime>
+                        </ion-item>
+                    </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-item>
+            <ion-label floating >Tema</ion-label>
+            <ion-input type="text" [(ngModel)]="evento.tema"></ion-input>
+        </ion-item> 
+    </ion-list>
+    <button (click)="salvar()" ion-button full >Salvar</button>
+</ion-content>

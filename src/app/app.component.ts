@@ -5,14 +5,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { LoginPage } from '../pages/login/login'
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../provides/auth';
+import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
-  public rootPage : any = LoginPage;
+  public rootPage : any = MeusEventosPage;
   public home  = HomePage;
   public login = LoginPage;
+  public meusEventos = MeusEventosPage;
   public sair  = LoginPage;
   public isMenu: boolean = false;  
   
