@@ -9,11 +9,11 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-item-sliding *ngFor="">
+      <ion-item-sliding *ngFor="let evento of listEventos">
           <ion-item >
             <ion-card>
                 <ion-card-header>
-                  
+                  {{evento.tema}}
                 </ion-card-header>
 
                 <ion-card-content>

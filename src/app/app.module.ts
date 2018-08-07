@@ -20,6 +20,7 @@ import { AuthProvider } from '../provides/auth';
 import { FirebaseProvider } from '../provides/firebase';
 import {  Geolocation } from "@ionic-native/geolocation";
 import { EventosProvider } from '../provides/eventos';
+import { DatePipe} from '@angular/common';
 
 import { MyApp } from './app.component';
 
@@ -51,9 +52,11 @@ import { MyApp } from './app.component';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
+    DatePipe,
     FirebaseProvider,
     EventosProvider,
-    Geolocation
+    Geolocation,
+    
   ]
 })
 export class AppModule {

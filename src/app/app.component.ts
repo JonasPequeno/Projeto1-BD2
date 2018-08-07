@@ -11,7 +11,7 @@ import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  public rootPage : any = MeusEventosPage;
+  public rootPage : any = LoginPage;
   public home  = HomePage;
   public login = LoginPage;
   public meusEventos = MeusEventosPage;

@@ -11,7 +11,7 @@ export class AuthProvider {
     }
 
     getEmailUser() {
-        return this.afAuth.auth.currentUser.uid;    
+        return this.afAuth.auth.currentUser.uid;
     }
     
 

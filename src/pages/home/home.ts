@@ -71,7 +71,7 @@ export class HomePage {
                 let locali : string = ""+local.geometry.location;
                 data.local = locali;
                 let emailUser = this.afProvider.getEmailUser();
-                alert(emailUser);
+                alert('ID' +emailUser);
                 data.usuario = emailUser;
                 this.eventProvider.postEvento(data)
                 .then((res) =>{
