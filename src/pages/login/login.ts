@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../provides/auth';
 import { FirebaseProvider } from "../../provides/firebase";
 import { LoadingController } from 'ionic-angular';
@@ -23,7 +23,8 @@ export class LoginPage {
     public navParams: NavParams,
     public afProvider :AuthProvider,
     public fireProvader : FirebaseProvider,
-    public loadCrtl : LoadingController
+    public loadCrtl : LoadingController,
+    public toastCrtl : ToastController
   
   ){}
 
@@ -68,8 +69,19 @@ fazerCadastro() {
       instituicao : this.registerForm.instituicao,
       curso : this.registerForm.curso
     }
-    this.fireProvader.postUser(user);
-    load.dismiss();  
+    this.fireProvader.postUser(user)
+      .then(()=>{
+        let toast = this.toastCrtl.create({
+          message : 'Cadastro feito com sucesso !' ,
+          duration : 2000,
+          position: 'middle'
+       })
+       toast.present();
+       this.login = true;
+       this.registro = false;
+      })
+      
+      load.dismiss();  
   })
   .catch((err)=> {
     console.log(err);

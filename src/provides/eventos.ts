@@ -43,10 +43,10 @@ export class EventosProvider {
                     let latitude = evento.local.replace('(',"").replace(')','').split(',');
                     //cria uma foto do ponto no mapa
                     evento.map =  "https://maps.googleapis.com/maps/api/staticmap?center=" +
-                    latitude[0] + ", " + latitude[1] +
+                    latitude[0] + "," + latitude[1] +
                     "&zoom=15&size=400x400" +
                     "&markers=color:red%7Clabel:S%7C" +
-                    latitude[0] + ", " + latitude[1] +
+                    latitude[0] + "," + latitude[1] +
                     "&maptype=roadmap&key=AIzaSyBx-WZzpi4YDO9vrIBjZDqWv7_nU3u5-Bs";
 
 
@@ -56,6 +56,21 @@ export class EventosProvider {
             callback(listEventos);
         })
     }
+
+    public getEventosAll (callback) {
+        let listEventos = [];
+        let eventos = firebase.database().ref('eventos');
+        eventos.on('value',(snapshot)=>{
+            snapshot.forEach(element => {              
+                //pega o uid do usuario logado
+                    let evento = element.val();                                    
+                    listEventos.push(evento);
+                })
+                callback(listEventos);
+            });
+           
+    }
+    
 
     //remove o evento
     public removeEventos(evento){

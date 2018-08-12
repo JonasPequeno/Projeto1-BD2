@@ -1,5 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToastController, AlertController  } from 'ionic-angular';
 import { EventosProvider } from '../../provides/eventos';
 
 
@@ -16,7 +17,9 @@ export class MeusEventosPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public eventProvider : EventosProvider
+    public eventProvider : EventosProvider,
+    public toastCrtl : ToastController,
+    public alertCrtl : AlertController
   ) {}
 
   ngOnInit() {
@@ -26,10 +29,27 @@ export class MeusEventosPage implements OnInit {
   }
   
   remover(evento) {
-    let pos = this.listEventos.indexOf(evento);
-    alert(pos);
-    this.eventProvider.removeEventos(evento);
-    this.listEventos.splice(pos, 1);
-    
+      let alert = this.alertCrtl.create({
+        title : 'Excluir',
+        subTitle : 'Deseja realmente realmente excluir o evento : '+evento.titulo+'?',
+        buttons : [{
+            text : 'Confirmar',
+            handler : ()=>{
+              let pos = this.listEventos.indexOf(evento);
+              this.eventProvider.removeEventos(evento);
+              this.listEventos.splice(pos, 1);
+              
+            }
+        },
+        {
+            text : 'Cancelar',
+            handler :() =>{
+                alert.onDidDismiss;
+            }
+        }
+    ]
+    });
+     alert.present();
+
   }    
 }

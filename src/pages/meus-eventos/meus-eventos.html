@@ -10,37 +10,27 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-list>
       <ion-item-sliding *ngFor="let evento of listEventos" >
-          <ion-item >
-            <ion-card class="bold">
-                    <img src="{{evento.map}}" alt="">
-                <ion-card-content>
-                
-                  <ion-card-title>
-                      Tema : {{evento.tema}}
-                  </ion-card-title>
-                  <ion-grid>
-                      <ion-row >
-                        <ion-col>
-                            <h6>Horario</h6>
-                            <p>Inicio :</p>
-                            {{evento.horaInicio}} :Hrs
-                            <p>Termino:</p>
-                            {{evento.horaFim}} :Hrs
-                        </ion-col>
-                        <ion-col>
-                            <h6>Data </h6>
-                            <p>Inicio</p>
-                            {{evento.dataInicio}}
-                            <p>Termino</p>
-                            {{evento.dataFim}}
-                        </ion-col>
-                      </ion-row>
-                  </ion-grid>                  
-                </ion-card-content>                
-            </ion-card>    
+          <ion-item >        
+                <ion-card class="bold">
+                    <img src="{{evento.map}}">                
+                    <ion-item class="center">                     
+                        <ion-title> {{evento.titulo}}</ion-title>   
+                    </ion-item>
+                    <ion-item>
+                            <ion-icon item-start large ios="ios-calendar" md="md-calendar"></ion-icon>
+                            <h5> Entre {{evento.dataInicio}} e {{evento.dataFim}}</h5>
+                    </ion-item>
+
+                    <ion-item>
+                            <ion-icon item-start large ios="ios-time" md="md-time"></ion-icon>
+                            <h2>{{evento.horaInicio}}:Hrs as {{evento.horaFim}}:Hrs</h2>
+                    </ion-item>
+
+                </ion-card>
+               
           </ion-item>
           
           <ion-item-options>

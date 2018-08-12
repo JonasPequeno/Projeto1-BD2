@@ -3,7 +3,8 @@ import { NavController, Platform, ViewController, ModalController, NavParams, Al
 import { Geolocation } from '@ionic-native/geolocation';
 import {EventoModalPage} from '../evento-modal/evento-modal';
 import { EventosProvider } from '../../provides/eventos';
-import { IfStmt } from '@angular/compiler';
+import { ToastController, AlertController  } from 'ionic-angular';
+
 import { AuthProvider } from '../../provides/auth';
 
 declare var google : any;
@@ -23,7 +24,8 @@ export class HomePage {
     public eventProvider : EventosProvider,  
     public modalCrtl : ModalController,
     public viewController : ViewController,
-    public afProvider : AuthProvider
+    public afProvider : AuthProvider,
+    public toastCrtl : ToastController
 
   ) {}
 
@@ -50,7 +52,7 @@ export class HomePage {
 
     let opcoes = {
         center: latLng,
-        zoom : 18,
+        zoom : 14,
         //mapTypeId : google.maps.mapTypeId.ROADMAP
         disableDefaultUI : true
         //mapTypeId:google.maps.MapTypeId.SATELLITE,
@@ -58,12 +60,12 @@ export class HomePage {
 
       let elemento = document.getElementById('map');
       this.map = new google.maps.Map(elemento,opcoes);
-
+      this.map.setMapTypeId('roadmap');
       let marcador = new google.maps.Marker({
         position : latLng,
       });
 
-      //evento de click
+      //evento de click para criar os eventos
       this.map.addListener('click', ((e) =>{      
          let modal = this.modalCrtl.create(EventoModalPage);
          modal.onDidDismiss(data =>{
@@ -82,6 +84,12 @@ export class HomePage {
                
                 this.eventProvider.postEvento(data)
                 .then((res) =>{
+                  let toast = this.toastCrtl.create({
+                    message : 'Evento criado com sucesso !' ,
+                    duration : 2000,
+                    position: 'middle'
+                })
+                toast.present();
               })  
 
             })                 
@@ -130,27 +138,40 @@ export class HomePage {
     }
 
    public marcaPontos () {
-     this.eventProvider.getEventos((eventos) => {
+     this.eventProvider.getEventosAll((eventos) => {
        console.log('entoru no for' + eventos)
 
       for(let i=0; i<eventos.length; i++){
           console.log('entoru no for' + eventos)
           let coo = eventos[i].local.replace('(','').replace(')','').split(',');      
-          console.log(eventos[i].local);
+          console.log(eventos);
           
           let lat = parseFloat(coo[0]);
           let lng = parseFloat(coo[1]);
-          console.log('Lat '+lat);
-          console.log('lng' +lng);
           
           let latlng = new google.maps.LatLng(lat,lng);
-          console.log(latlng);
 
-          let marcador =  new google.maps.Marker({
-            position : latlng,
-            map : this.map,
-            title : eventos[i].tema
+          this.getEndereco(latlng, (result) =>{
+                this.endereco = result.formatted_address.split(',');
+                
+                let texto  = "<p> Titulo : "+eventos[i].titulo+"</p> <br> <p> Tema : "+ eventos[i].tema+"</p>"+
+                "<br><p> Local :"+ this.endereco[0]+"</p>"          
+                var info = new google.maps.InfoWindow( {
+                  content : texto,
+                })
+                let marcador =  new google.maps.Marker({
+                  position : latlng,
+                  map : this.map,
+                  title : eventos[i].tema
+                })
+      
+                marcador.addListener('click' ,function(){
+                  info.open(this.map, marcador);
+                })
+                                
           })
+          
+         
       }
       
       });
