@@ -9,6 +9,7 @@ import { RegistroPageModule } from '../pages/registro/registro.module';
 import { HomePage } from  '../pages/home/home';
 import { EventoModalPage } from '../pages/evento-modal/evento-modal';
 import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
+import { PerfilPage } from '../pages/perfil/perfil';
 //importações do firebase e angular fire
 import { firebaseConfig } from '../configs/firebase';
 import { AngularFireModule } from 'angularfire2';
@@ -29,7 +30,8 @@ import { MyApp } from './app.component';
     MyApp,
     HomePage,
     EventoModalPage,
-    MeusEventosPage
+    MeusEventosPage,
+    PerfilPage
   ],
   imports: [
     LoginPageModule,
@@ -43,8 +45,10 @@ import { MyApp } from './app.component';
   bootstrap: [IonicApp],
   entryComponents: [
     HomePage,
+    PerfilPage, 
     EventoModalPage,
-    MeusEventosPage
+    MeusEventosPage,
+    
 
   ],
   providers: [

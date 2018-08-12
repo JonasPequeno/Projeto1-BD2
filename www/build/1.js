@@ -1,14 +1,14 @@
 webpackJsonp([1],{
 
-/***/ 484:
+/***/ 486:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EventoModalPageModule", function() { return EventoModalPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeusEventosPageModule", function() { return MeusEventosPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__evento_modal__ = __webpack_require__(159);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__meus_eventos__ = __webpack_require__(161);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var EventoModalPageModule = /** @class */ (function () {
-    function EventoModalPageModule() {
+var MeusEventosPageModule = /** @class */ (function () {
+    function MeusEventosPageModule() {
     }
-    EventoModalPageModule = __decorate([
+    MeusEventosPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__evento_modal__["a" /* EventoModalPage */],
+                __WEBPACK_IMPORTED_MODULE_2__meus_eventos__["a" /* MeusEventosPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__evento_modal__["a" /* EventoModalPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__meus_eventos__["a" /* MeusEventosPage */]),
             ],
         })
-    ], EventoModalPageModule);
-    return EventoModalPageModule;
+    ], MeusEventosPageModule);
+    return MeusEventosPageModule;
 }());
 
-//# sourceMappingURL=evento-modal.module.js.map
+//# sourceMappingURL=meus-eventos.module.js.map
 
 /***/ })
 

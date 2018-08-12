@@ -6,11 +6,13 @@ import { LoginPage } from '../pages/login/login'
 import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../provides/auth';
 import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
+import { PerfilPage } from '../pages/perfil/perfil';
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
+  public perfil = PerfilPage;
   public rootPage : any = LoginPage;
   public home  = HomePage;
   public login = LoginPage;

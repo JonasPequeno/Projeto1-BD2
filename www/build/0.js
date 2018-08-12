@@ -1,14 +1,14 @@
 webpackJsonp([0],{
 
-/***/ 485:
+/***/ 487:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MeusEventosPageModule", function() { return MeusEventosPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PerfilPageModule", function() { return PerfilPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(29);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__meus_eventos__ = __webpack_require__(160);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__perfil__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MeusEventosPageModule = /** @class */ (function () {
-    function MeusEventosPageModule() {
+var PerfilPageModule = /** @class */ (function () {
+    function PerfilPageModule() {
     }
-    MeusEventosPageModule = __decorate([
+    PerfilPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__meus_eventos__["a" /* MeusEventosPage */],
+                __WEBPACK_IMPORTED_MODULE_2__perfil__["a" /* PerfilPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__meus_eventos__["a" /* MeusEventosPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__perfil__["a" /* PerfilPage */]),
             ],
         })
-    ], MeusEventosPageModule);
-    return MeusEventosPageModule;
+    ], PerfilPageModule);
+    return PerfilPageModule;
 }());
 
-//# sourceMappingURL=meus-eventos.module.js.map
+//# sourceMappingURL=perfil.module.js.map
 
 /***/ })
 

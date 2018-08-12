@@ -1,0 +1,31 @@
+
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button icon-only menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+     <ion-title>Perfil</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-grid class="center">
+        <ion-row>
+            <h6>Nome : {{user.nome}}</h6>
+        </ion-row>
+        <ion-row>
+            <h6>Email : {{user.email}}</h6>
+        </ion-row>
+        <ion-row>
+            <h6>Curso : {{user.curso}}</h6>
+        </ion-row>        
+        <ion-row>
+            <h6>Instituição : {{user.instituicao}}</h6>
+        </ion-row>
+    </ion-grid>
+    
+</ion-content>

@@ -1,7 +1,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>meusEventos</ion-title>
+        <button ion-button icon-only menuToggle>
+                <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Meus Eventos</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -9,21 +12,39 @@
 
 <ion-content padding>
   <ion-list>
-      <ion-item-sliding *ngFor="let evento of listEventos">
+      <ion-item-sliding *ngFor="let evento of listEventos" >
           <ion-item >
-            <ion-card>
-                <ion-card-header>
-                  {{evento.tema}}
-                </ion-card-header>
-
+            <ion-card class="bold">
+                    <img src="{{evento.map}}" alt="">
                 <ion-card-content>
-
+                
+                  <ion-card-title>
+                      Tema : {{evento.tema}}
+                  </ion-card-title>
+                  <ion-grid>
+                      <ion-row >
+                        <ion-col>
+                            <h6>Horario</h6>
+                            <p>Inicio :</p>
+                            {{evento.horaInicio}} :Hrs
+                            <p>Termino:</p>
+                            {{evento.horaFim}} :Hrs
+                        </ion-col>
+                        <ion-col>
+                            <h6>Data </h6>
+                            <p>Inicio</p>
+                            {{evento.dataInicio}}
+                            <p>Termino</p>
+                            {{evento.dataFim}}
+                        </ion-col>
+                      </ion-row>
+                  </ion-grid>                  
                 </ion-card-content>                
             </ion-card>    
           </ion-item>
           
           <ion-item-options>
-              <button ion-button color="danger">Excluir</button>
+              <button ion-button (click)="remover(evento)"color="danger">Excluir</button>
           </ion-item-options>
       </ion-item-sliding>
   </ion-list>

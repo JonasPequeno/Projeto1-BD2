@@ -30,20 +30,22 @@ export class HomePage {
   ngOnInit(){
     //espera a pagina carregar por completo
     this.platform.ready().then(() =>{
+     
       //pega minha posição atual
       this.geolocation.getCurrentPosition()
       .then((result) =>{
         this.initMap(result.coords.latitude, result.coords.longitude);
+        this.marcaPontos();
       })
       .catch((err) =>{
         console.log(err);
       })
     })
-    this.eventProvider.getEventos();
+    
+    //this.eventProvider.getEventos();
   }
 
   private initMap(lat, lng){
-    
     let latLng = new google.maps.LatLng(lat,lng);    
 
     let opcoes = {
@@ -68,15 +70,20 @@ export class HomePage {
            if(data) {
             this.criaMarcador(e);   
             this.getEndereco(e.latLng , local =>{            
-                let locali : string = ""+local.geometry.location;
-                data.local = locali;
+                
+             // let locali : string = local.geometry.location;
+              let rua : string  = local.results;
+              
+                data.local = e.latLng+"";
                 let emailUser = this.afProvider.getEmailUser();
+                
                 alert('ID' +emailUser);
                 data.usuario = emailUser;
+               
                 this.eventProvider.postEvento(data)
                 .then((res) =>{
-                 alert(res);
-              })     
+              })  
+
             })                 
            }       
          })
@@ -107,10 +114,12 @@ export class HomePage {
         })
       }
     
-    public criaMarcador (event) {
+    public criaMarcador (event) {         
 
       this.getEndereco(event.latLng , endereco => {
         this.endereco = endereco;
+        console.log('Endereco do evvento ' , this.endereco);
+        
 
         let marcador = new google.maps.Marker({
           position : event.latLng,
@@ -119,5 +128,32 @@ export class HomePage {
         });
       })
     }
+
+   public marcaPontos () {
+     this.eventProvider.getEventos((eventos) => {
+       console.log('entoru no for' + eventos)
+
+      for(let i=0; i<eventos.length; i++){
+          console.log('entoru no for' + eventos)
+          let coo = eventos[i].local.replace('(','').replace(')','').split(',');      
+          console.log(eventos[i].local);
+          
+          let lat = parseFloat(coo[0]);
+          let lng = parseFloat(coo[1]);
+          console.log('Lat '+lat);
+          console.log('lng' +lng);
+          
+          let latlng = new google.maps.LatLng(lat,lng);
+          console.log(latlng);
+
+          let marcador =  new google.maps.Marker({
+            position : latlng,
+            map : this.map,
+            title : eventos[i].tema
+          })
+      }
+      
+      });
     
+   }
 }

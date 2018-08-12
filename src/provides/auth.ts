@@ -13,6 +13,11 @@ export class AuthProvider {
     getEmailUser() {
         return this.afAuth.auth.currentUser.uid;
     }
+
+    getEmail() {
+        console.log('retorno do email no auth ' +  this.afAuth.auth.currentUser.email);
+        return this.afAuth.auth.currentUser.email;
+    }
     
 
     //login 

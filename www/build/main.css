@@ -25810,3 +25810,8 @@ page-login .ctaRegistrar {
   background: #FAFAFA;
   color: orange;
 }
+
+#mapa {
+  height: 200px;
+  background-color: blueviolet;
+}
