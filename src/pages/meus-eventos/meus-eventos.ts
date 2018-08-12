@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ToastController, AlertController  } from 'ionic-angular';
 import { EventosProvider } from '../../provides/eventos';
+import { EventoRotaPage } from '../evento-rota/evento-rota'
 
 
 declare var google : any;
@@ -37,8 +38,10 @@ export class MeusEventosPage implements OnInit {
             handler : ()=>{
               let pos = this.listEventos.indexOf(evento);
               this.eventProvider.removeEventos(evento);
-              this.listEventos.splice(pos, 1);
-              
+              this.listEventos.splice(pos, 1); 
+              this.eventProvider.getEventos((eventos) =>{
+                this.listEventos = eventos;
+              });            
             }
         },
         {
@@ -52,4 +55,13 @@ export class MeusEventosPage implements OnInit {
      alert.present();
 
   }    
+
+  openRoute(evento) {
+    let coo = evento.local.replace('(','').replace(')','').split(',');              
+    let lat = parseFloat(coo[0]);
+    let lng = parseFloat(coo[1]);
+    let latlng = new google.maps.LatLng(lat,lng);
+    let directions = {latitude : lat, longitude : lng}
+    this.navCtrl.push(EventoRotaPage, {directions});
+  }
 }

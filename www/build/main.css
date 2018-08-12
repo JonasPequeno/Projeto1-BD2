@@ -25762,6 +25762,10 @@ ion-navbar.toolbar {
   font-weight: 300;
 }
 
+#rotaMap {
+  height: 100%;
+}
+
 #map {
   height: 100%;
 }

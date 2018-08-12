@@ -10,6 +10,7 @@ import { HomePage } from  '../pages/home/home';
 import { EventoModalPage } from '../pages/evento-modal/evento-modal';
 import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
 import { PerfilPage } from '../pages/perfil/perfil';
+import { EventoRotaPage } from '../pages/evento-rota/evento-rota';
 //importações do firebase e angular fire
 import { firebaseConfig } from '../configs/firebase';
 import { AngularFireModule } from 'angularfire2';
@@ -31,7 +32,8 @@ import { MyApp } from './app.component';
     HomePage,
     EventoModalPage,
     MeusEventosPage,
-    PerfilPage
+    PerfilPage,
+    EventoRotaPage
   ],
   imports: [
     LoginPageModule,
@@ -48,6 +50,7 @@ import { MyApp } from './app.component';
     PerfilPage, 
     EventoModalPage,
     MeusEventosPage,
+    EventoRotaPage
     
 
   ],

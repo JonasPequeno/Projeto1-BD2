@@ -169,9 +169,7 @@ export class HomePage {
                   info.open(this.map, marcador);
                 })
                                 
-          })
-          
-         
+          })         
       }
       
       });

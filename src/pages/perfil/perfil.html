@@ -13,19 +13,22 @@
 
 <ion-content padding>
 
-    <ion-grid class="center">
-        <ion-row>
-            <h6>Nome : {{user.nome}}</h6>
-        </ion-row>
-        <ion-row>
-            <h6>Email : {{user.email}}</h6>
-        </ion-row>
-        <ion-row>
-            <h6>Curso : {{user.curso}}</h6>
-        </ion-row>        
-        <ion-row>
-            <h6>Instituição : {{user.instituicao}}</h6>
-        </ion-row>
-    </ion-grid>
-    
+    <ion-list class="center">
+        <ion-item>
+            <ion-icon item-start large ios="ios-person" md="md-person"></ion-icon>
+            <h5> {{user.nome}}</h5>
+        </ion-item>
+        <ion-item>
+            <ion-icon item-start large ios="ios-mail" md="md-mail"></ion-icon>
+            <h5> {{user.email}}</h5>
+        </ion-item>
+        <ion-item>
+            <ion-icon item-start large ios="ios-school" md="md-school"></ion-icon>
+            <h5> {{user.curso}}</h5>
+        </ion-item>        
+        <ion-item>
+            <ion-icon item-start large ios="ios-home" md="md-home"></ion-icon>
+            <h5> {{user.instituicao}}</h5>
+        </ion-item>        
+    </ion-list>    
 </ion-content>

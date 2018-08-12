@@ -40,13 +40,19 @@ export class EventosProvider {
                 let emailUser = this.authProvider.getEmailUser();                       
                 if(element.val().usuario == this.authProvider.getEmailUser()) {
                     let evento = element.val();
+                    let dataI = this.datePipe.transform(evento.dataInicio, "dd/MM/yyyy");
+                    let dataF = this.datePipe.transform(evento.dataFim, "dd/MM/yyyy");
+                    evento.dataInicio = dataI;
+                    evento.dataFim = dataF;
                     let latitude = evento.local.replace('(',"").replace(')','').split(',');
+                    let lat = parseFloat(latitude[0]);
+                    let lng = parseFloat(latitude[1]);
                     //cria uma foto do ponto no mapa
                     evento.map =  "https://maps.googleapis.com/maps/api/staticmap?center=" +
-                    latitude[0] + "," + latitude[1] +
+                    lat + "," + lng +
                     "&zoom=15&size=400x400" +
                     "&markers=color:red%7Clabel:S%7C" +
-                    latitude[0] + "," + latitude[1] +
+                    lat + "," + lng +
                     "&maptype=roadmap&key=AIzaSyBx-WZzpi4YDO9vrIBjZDqWv7_nU3u5-Bs";
 
 
