@@ -19,13 +19,20 @@
                         <ion-title> {{evento.titulo}}</ion-title>   
                     </ion-item>
                     <ion-item>
-                            <ion-icon item-start large ios="ios-calendar" md="md-calendar"></ion-icon>
-                            <h5> Entre {{evento.dataInicio}} e {{evento.dataFim}}</h5>
+                            <ion-icon item-start ios="ios-calendar" md="md-calendar"></ion-icon>
+                             Entre {{evento.dataInicio}} e {{evento.dataFim}}
                     </ion-item>
 
                     <ion-item>
-                            <ion-icon item-start large ios="ios-time" md="md-time"></ion-icon>
-                            <h2>{{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs</h2>
+                            <ion-icon item-start ios="ios-time" md="md-time"></ion-icon>
+                            {{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs
+                    </ion-item>
+                    
+                    <ion-item>
+                            <ion-icon item-start ios="ios-locate" md="md-locate"></ion-icon>
+                            <p> Você está a {{evento.distancia}} Km do evento <br>
+                             {{rua}}
+                            </p>
                     </ion-item>
 
                     <ion-item>

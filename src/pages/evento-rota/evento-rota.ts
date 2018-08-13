@@ -24,7 +24,7 @@ export class EventoRotaPage implements OnInit {
   ngOnInit(): void {
     //pega as cooo passadas
     this.directions = this.navParams.get('directions');
-    alert(this.directions.latitude+ "   "+ this.directions.longitude );
+
     this.platform.ready()
     .then(()=>{
       this.initMap();

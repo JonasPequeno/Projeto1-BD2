@@ -27,6 +27,11 @@
                               <ion-icon item-start large ios="ios-time" md="md-time"></ion-icon>
                               <h2>{{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs</h2>
                       </ion-item>
+
+                      <ion-item>
+                              <ion-icon item-start large ios="ios-locate" md="md-locate"></ion-icon>
+                              <h6>Você está a {{evento.distancia}} Km do evento</h6>
+                      </ion-item>
   
                       <ion-item>
                           <button ion-button icon-start clear item-end (click)="openRoute(evento)">
