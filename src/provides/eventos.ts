@@ -56,7 +56,7 @@ export class EventosProvider {
                     "&zoom=15&size=400x400" +
                     "&markers=color:red%7Clabel:S%7C" +
                     lat + "," + lng +
-                    "&maptype=roadmap&key=AIzaSyC6FwdiUd0ZIkqO_SkLuXBfE78J6Mmocj0";
+                    "&maptype=roadmap&key=AIzaSyCxuFgcc8nFa1gyxtqv4cZC_lYah2DZhCU";
                     } , 1500);
                     listEventos.push(evento);
                 }
@@ -81,7 +81,7 @@ export class EventosProvider {
                 "&zoom=15&size=400x400" +
                 "&markers=color:red%7Clabel:S%7C" +
                 lat + "," + lng +
-                "&maptype=roadmap&key=AIzaSyC6FwdiUd0ZIkqO_SkLuXBfE78J6Mmocj0";
+                "&maptype=roadmap&key=AIzaSyCxuFgcc8nFa1gyxtqv4cZC_lYah2DZhCU";
                 } , 1500);
                 listEventos.push(evento);
                 })
@@ -93,8 +93,6 @@ export class EventosProvider {
 
     //remove o evento
     public removeEventos(evento){
-
-        alert(evento.id)
         firebase.database().ref('eventos/'+evento.id).remove();
     }
 }

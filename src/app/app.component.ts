@@ -20,7 +20,6 @@ export class MyApp {
   public meusEventos = MeusEventosPage;
   public todosEventos = AllEventosPage;
   public sair  = LoginPage;
-  public isMenu: boolean = false;  
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     public auth : AuthProvider,
@@ -33,10 +32,9 @@ export class MyApp {
     });
   }
 
-  public trocaPagina (pagina) {    
-    this.rootPage = pagina;
+  public trocaPagina (pagina) {
+    this.rootPage = pagina;    
   }
-  
   
 
 }

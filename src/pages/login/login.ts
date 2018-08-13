@@ -18,6 +18,7 @@ export class LoginPage implements OnInit{
   private registro : boolean = false;
   private loginForm = {email : '', senha : ''};
   private registerForm = {email : '', nome : '', senha:'', curso : '', instituicao : ''};
+  
 
   constructor(
     public navCtrl: NavController,

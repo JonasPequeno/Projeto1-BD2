@@ -90,7 +90,7 @@ export class HomePage {
                 data.local = e.latLng+"";
                 let emailUser = this.afProvider.getEmailUser();
                 
-                alert('ID' +emailUser);
+                
                 data.usuario = emailUser;
                
                 this.eventProvider.postEvento(data)
@@ -142,7 +142,7 @@ export class HomePage {
         let marcador = new google.maps.Marker({
           position : event.latLng,
           map : this.map,
-          title : 'Novo Marcador'
+          title : 'Minha posição',
         });
       })
     }
