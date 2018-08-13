@@ -60,7 +60,7 @@ export class EventosProvider {
                     "&zoom=15&size=400x400" +
                     "&markers=color:red%7Clabel:S%7C" +
                     lat + "," + lng +
-                    "&maptype=roadmap&key=AIzaSyD16KWaZrWZ4imnVGIipkvlnvN6rI9s80g";
+                    "&maptype=roadmap&key=AIzaSyC6FwdiUd0ZIkqO_SkLuXBfE78J6Mmocj0";
                     } , 1500);
                     listEventos.push(evento);
                 }
@@ -90,7 +90,7 @@ export class EventosProvider {
                 "&zoom=15&size=400x400" +
                 "&markers=color:red%7Clabel:S%7C" +
                 lat + "," + lng +
-                "&maptype=roadmap&key=AIzaSyD16KWaZrWZ4imnVGIipkvlnvN6rI9s80g";
+                "&maptype=roadmap&key=AIzaSyC6FwdiUd0ZIkqO_SkLuXBfE78J6Mmocj0";
                 } , 1500);
                 listEventos.push(evento);
                 })

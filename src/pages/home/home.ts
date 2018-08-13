@@ -37,11 +37,12 @@ export class HomePage {
       this.geolocation.getCurrentPosition()
       .then((result) =>{
         this.initMap(result.coords.latitude, result.coords.longitude);
-        this.marcaPontos();
+
       })
       .catch((err) =>{
         console.log(err);
       })
+      this.marcaPontos();
     })
     
     //this.eventProvider.getEventos();
@@ -103,8 +104,7 @@ export class HomePage {
       this.getEndereco(latLng, function(res){
         console.log(res);
         
-      });    
-      
+      });          
 
     }
 
@@ -153,13 +153,13 @@ export class HomePage {
 
           this.getEndereco(latlng, (result) =>{
                 this.endereco = result.formatted_address.split(',');
-                
+
                 let texto  = "<p> Titulo : "+eventos[i].titulo+"</p> <br> <p> Tema : "+ eventos[i].tema+"</p>"+
                 "<br><p> Local :"+ this.endereco[0]+"</p>"          
                 var info = new google.maps.InfoWindow( {
                   content : texto,
                 })
-                window.setInterval(()=>{
+                
                   var marcador =  new google.maps.Marker({
                     position : latlng,
                     map : this.map,
@@ -168,7 +168,7 @@ export class HomePage {
                   marcador.addListener('click' ,function(){
                     info.open(this.map, marcador);
                   })
-                },3000)                
+                          
           })         
       }
       

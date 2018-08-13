@@ -335,12 +335,15 @@ var AllEventosPage = /** @class */ (function () {
     };
     AllEventosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-all-eventos',template:/*ion-inline-start:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/all-eventos/all-eventos.html"*/'<ion-header>\n\n    <ion-navbar>\n          <button ion-button icon-only menuToggle>\n                  <ion-icon name="menu"></ion-icon>\n          </button>\n          <ion-title>Todos os eventos</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-list>        \n            <ion-item *ngFor="let evento of listEventos" >        \n                  <ion-card class="bold">\n                      <img src="{{evento.map}}">                \n                      <ion-item class="center">                     \n                          <ion-title> {{evento.titulo}}</ion-title>   \n                      </ion-item>\n                      <ion-item>\n                              <ion-icon item-start large ios="ios-calendar" md="md-calendar"></ion-icon>\n                              <h5> Entre {{evento.dataInicio}} e {{evento.dataFim}}</h5>\n                      </ion-item>\n  \n                      <ion-item>\n                              <ion-icon item-start large ios="ios-time" md="md-time"></ion-icon>\n                              <h2>{{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs</h2>\n                      </ion-item>\n\n                      <ion-item>\n                              <ion-icon item-start large ios="ios-locate" md="md-locate"></ion-icon>\n                              <h6>Você está a {{evento.distancia}} Km do evento</h6>\n                      </ion-item>\n  \n                      <ion-item>\n\n                         <button ion-button icon-start clear item-end >                           \n                           <ion-checkbox color="dark" (click)="marcaPresenca(evento)" checked="{{status}}" ></ion-checkbox>                                              \n                            Marca Presença\n                          </button>                        \n\n                          <button ion-button icon-start clear item-end (click)="openRoute(evento)">\n                          <ion-icon name="navigate"></ion-icon>\n                            Rota\n                          </button>\n                      </ion-item>\n                      \n  \n                  </ion-card>\n                 \n            </ion-item>          \n    </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/all-eventos/all-eventos.html"*/,
+            selector: 'page-all-eventos',template:/*ion-inline-start:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/all-eventos/all-eventos.html"*/'<ion-header>\n\n    <ion-navbar>\n          <button ion-button icon-only menuToggle>\n                  <ion-icon name="menu"></ion-icon>\n          </button>\n          <ion-title>Todos os eventos</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n  \n  \n  <ion-content>\n    <ion-list>        \n            <ion-item *ngFor="let evento of listEventos" >        \n                  <ion-card class="bold">\n                      <img src="{{evento.map}}">                \n                      <ion-item class="center">                     \n                          <ion-title> {{evento.titulo}}</ion-title>   \n                      </ion-item>\n                      <ion-item>\n                              <ion-icon item-start large ios="ios-calendar" md="md-calendar"></ion-icon>\n                              <p> Entre {{evento.dataInicio}} e {{evento.dataFim}}</p> \n                      </ion-item>\n  \n                      <ion-item>\n                              <ion-icon item-start large ios="ios-time" md="md-time"></ion-icon>\n                              <p>{{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs</p> \n                      </ion-item>\n\n                      <ion-item>\n                              <ion-icon item-start large ios="ios-locate" md="md-locate"></ion-icon>\n                              <p>Você está a {{evento.distancia}} Km do evento</p> \n                      </ion-item>\n  \n                      <ion-item>\n\n                         <button ion-button icon-start clear item-end >                           \n                           <ion-checkbox color="dark" (click)="marcaPresenca(evento)" checked="{{status}}" ></ion-checkbox>                                              \n                            Marca Presença\n                          </button>                        \n\n                          <button ion-button icon-start clear item-end (click)="openRoute(evento)">\n                          <ion-icon name="navigate"></ion-icon>\n                            Rota\n                          </button>\n                      </ion-item>\n                      \n  \n                  </ion-card>\n                 \n            </ion-item>          \n    </ion-list>\n  </ion-content>\n  '/*ion-inline-end:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/all-eventos/all-eventos.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__provides_eventos__["a" /* EventosProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__provides_eventos__["a" /* EventosProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_geolocation__["a" /* Geolocation */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_geolocation__["a" /* Geolocation */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__provides_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__provides_auth__["a" /* AuthProvider */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+            __WEBPACK_IMPORTED_MODULE_2__provides_eventos__["a" /* EventosProvider */],
+            __WEBPACK_IMPORTED_MODULE_4__ionic_native_geolocation__["a" /* Geolocation */],
+            __WEBPACK_IMPORTED_MODULE_6__provides_auth__["a" /* AuthProvider */]])
     ], AllEventosPage);
     return AllEventosPage;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=all-eventos.js.map
@@ -506,7 +509,7 @@ var MeusEventosPage = /** @class */ (function () {
     };
     MeusEventosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-meus-eventos',template:/*ion-inline-start:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/meus-eventos/meus-eventos.html"*/'<ion-header>\n\n  <ion-navbar>\n        <button ion-button icon-only menuToggle>\n                <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Meus Eventos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-list>\n          <ion-item  *ngFor="let evento of listEventos">        \n                <ion-card class="bold">\n                    <img src="{{evento.map}}">                \n                    <ion-item class="center">                     \n                        <ion-title> {{evento.titulo}}</ion-title>   \n                    </ion-item>\n                    <ion-item>\n                            <ion-icon item-start ios="ios-calendar" md="md-calendar"></ion-icon>\n                             Entre {{evento.dataInicio}} e {{evento.dataFim}}\n                    </ion-item>\n\n                    <ion-item>\n                            <ion-icon item-start ios="ios-time" md="md-time"></ion-icon>\n                            {{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs\n                    </ion-item>\n                    \n                    <ion-item>\n                            <ion-icon item-start ios="ios-locate" md="md-locate"></ion-icon>\n                            <p> Você está a {{evento.distancia}} Km do evento <br>\n                             {{rua}}\n                            </p>\n                    </ion-item>\n\n                    <ion-item>\n                        <button ion-button icon-start clear item-end (click)="openRoute(evento)">\n                            <ion-icon name="navigate"></ion-icon>\n                            Rota\n                        </button>\n                    \n                        <button ion-button icon-start clear (click)="openParticipantes(evento)">\n                            <ion-icon ios="ios-star" md="md-star"></ion-icon>\n                            Participantes\n                        </button>\n                    \n                        <button ion-button clear color="danger" (click)="remover(evento)">\n                            <ion-icon  item-start large ios="ios-trash" md="md-trash"></ion-icon>\n                            Excluir\n                        </button>\n                    </ion-item>\n                    \n\n                </ion-card>\n               \n          </ion-item>            \n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/meus-eventos/meus-eventos.html"*/,
+            selector: 'page-meus-eventos',template:/*ion-inline-start:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/meus-eventos/meus-eventos.html"*/'<ion-header>\n\n  <ion-navbar>\n        <button ion-button icon-only menuToggle>\n                <ion-icon name="menu"></ion-icon>\n        </button>\n        <ion-title>Meus Eventos</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content>\n  <ion-input placeholder="Buscar eventos" type="text" value=""></ion-input>\n  <ion-list>\n          <ion-item  *ngFor="let evento of listEventos">        \n                <ion-card class="bold">\n                    <img src="{{evento.map}}">                \n                    <ion-item class="center">                     \n                        <ion-title> {{evento.titulo}}</ion-title>   \n                    </ion-item>\n                    <ion-item>\n                            <ion-icon item-start ios="ios-calendar" md="md-calendar"></ion-icon>\n                             <p>Entre {{evento.dataInicio}} e {{evento.dataFim}}</p> \n                    </ion-item>\n\n                    <ion-item>\n                            <ion-icon item-start ios="ios-time" md="md-time"></ion-icon>\n                        <p> {{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs </p> \n                    </ion-item>\n                    \n                    <ion-item>\n                            <ion-icon item-start ios="ios-locate" md="md-locate"></ion-icon>\n                            <p> Você está a {{evento.distancia}} Km do evento <br>\n                             {{rua}}\n                            </p>\n                    </ion-item>\n\n                    <ion-item>\n                        <button ion-button icon-start clear item-end (click)="openRoute(evento)">\n                            <ion-icon name="navigate"></ion-icon>\n                            Rota\n                        </button>\n                    \n                        <button ion-button icon-start clear (click)="openParticipantes(evento)">\n                            <ion-icon ios="ios-star" md="md-star"></ion-icon>\n                            Participantes\n                        </button>\n                    \n                        <button ion-button clear color="danger" (click)="remover(evento)">\n                            <ion-icon  item-start large ios="ios-trash" md="md-trash"></ion-icon>\n                            Excluir\n                        </button>\n                    </ion-item>\n                    \n\n                </ion-card>\n               \n          </ion-item>            \n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/jonas/Documentos/Curso Ionic Fire Base/app/src/pages/meus-eventos/meus-eventos.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
@@ -547,17 +550,24 @@ var ParticipantesPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.eventProvider = eventProvider;
+        this.listEventos = [];
+        this.listParticipantes = [];
     }
+    ParticipantesPage.prototype.ngOnInit = function () {
+        this.getParticipantes();
+    };
     ParticipantesPage.prototype.getParticipantes = function () {
         var _this = this;
         var event = this.navParams.get('evento');
+        console.log('evento recebido ' + event.tema);
         this.eventProvider.getEventos(function (eventos) {
             _this.listEventos = eventos;
-        });
-        this.listEventos.forEach(function (evento) {
-            if (evento.id == event.id) {
-                _this.listParticipantes = evento.presente;
-            }
+            console.log(_this.listEventos);
+            _this.listEventos.forEach(function (element) {
+                if (element.id == event.id) {
+                    _this.listParticipantes = element.presenca;
+                }
+            });
         });
     };
     ParticipantesPage = __decorate([
@@ -1257,9 +1267,7 @@ var EventosProvider = /** @class */ (function () {
         });
     };
     EventosProvider.prototype.editar = function (evento) {
-        return __WEBPACK_IMPORTED_MODULE_1_firebase___default.a.database().ref('eventos/' + evento.id).set({
-            evento: evento
-        });
+        return __WEBPACK_IMPORTED_MODULE_1_firebase___default.a.database().ref('eventos/' + evento.id).set(evento);
     };
     EventosProvider.prototype.getEventos = function (callback) {
         var _this = this;
@@ -1285,7 +1293,7 @@ var EventosProvider = /** @class */ (function () {
                             "&zoom=15&size=400x400" +
                             "&markers=color:red%7Clabel:S%7C" +
                             lat_1 + "," + lng_1 +
-                            "&maptype=roadmap&key=AIzaSyD16KWaZrWZ4imnVGIipkvlnvN6rI9s80g";
+                            "&maptype=roadmap&key=AIzaSyC6FwdiUd0ZIkqO_SkLuXBfE78J6Mmocj0";
                     }, 1500);
                     listEventos.push(evento_1);
                 }
@@ -1314,7 +1322,7 @@ var EventosProvider = /** @class */ (function () {
                         "&zoom=15&size=400x400" +
                         "&markers=color:red%7Clabel:S%7C" +
                         lat + "," + lng +
-                        "&maptype=roadmap&key=AIzaSyD16KWaZrWZ4imnVGIipkvlnvN6rI9s80g";
+                        "&maptype=roadmap&key=AIzaSyC6FwdiUd0ZIkqO_SkLuXBfE78J6Mmocj0";
                 }, 1500);
                 listEventos.push(evento);
             });
@@ -1328,11 +1336,10 @@ var EventosProvider = /** @class */ (function () {
     };
     EventosProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__["a" /* AngularFirestore */],
-            __WEBPACK_IMPORTED_MODULE_3__provides_auth__["a" /* AuthProvider */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__["a" /* AngularFirestore */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_firestore__["a" /* AngularFirestore */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__provides_auth__["a" /* AuthProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__provides_auth__["a" /* AuthProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */]) === "function" && _c || Object])
     ], EventosProvider);
     return EventosProvider;
+    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=eventos.js.map

@@ -11,6 +11,7 @@
 
 
 <ion-content>
+  <ion-input placeholder="Buscar eventos" type="text" value=""></ion-input>
   <ion-list>
           <ion-item  *ngFor="let evento of listEventos">        
                 <ion-card class="bold">
@@ -20,12 +21,12 @@
                     </ion-item>
                     <ion-item>
                             <ion-icon item-start ios="ios-calendar" md="md-calendar"></ion-icon>
-                             Entre {{evento.dataInicio}} e {{evento.dataFim}}
+                             <p>Entre {{evento.dataInicio}} e {{evento.dataFim}}</p> 
                     </ion-item>
 
                     <ion-item>
                             <ion-icon item-start ios="ios-time" md="md-time"></ion-icon>
-                            {{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs
+                        <p> {{evento.horaInicio}}:Hrs às {{evento.horaFim}}:Hrs </p> 
                     </ion-item>
                     
                     <ion-item>
