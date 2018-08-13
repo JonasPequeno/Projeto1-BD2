@@ -44,18 +44,19 @@ export class EventosProvider {
                     let dataF = this.datePipe.transform(evento.dataFim, "dd/MM/yyyy");
                     evento.dataInicio = dataI;
                     evento.dataFim = dataF;
-                    let latitude = evento.local.replace('(',"").replace(')','').split(',');
+
+                    let latitude = element.val().local.replace('(',"").replace(')','').split(',');
                     let lat = parseFloat(latitude[0]);
                     let lng = parseFloat(latitude[1]);
-                    //cria uma foto do ponto no mapa
+                    window.setInterval(()=>{
+                        //cria uma foto do ponto no mapa                
                     evento.map =  "https://maps.googleapis.com/maps/api/staticmap?center=" +
                     lat + "," + lng +
                     "&zoom=15&size=400x400" +
                     "&markers=color:red%7Clabel:S%7C" +
                     lat + "," + lng +
-                    "&maptype=roadmap&key=AIzaSyBx-WZzpi4YDO9vrIBjZDqWv7_nU3u5-Bs";
-
-
+                    "&maptype=roadmap&key=AIzaSyD16KWaZrWZ4imnVGIipkvlnvN6rI9s80g";
+                    } , 1500);
                     listEventos.push(evento);
                 }
             });
@@ -68,9 +69,25 @@ export class EventosProvider {
         let eventos = firebase.database().ref('eventos');
         eventos.on('value',(snapshot)=>{
             snapshot.forEach(element => {              
-                //pega o uid do usuario logado
-                    let evento = element.val();                                    
-                    listEventos.push(evento);
+                let evento = element.val();
+                let dataI = this.datePipe.transform(evento.dataInicio, "dd/MM/yyyy");
+                let dataF = this.datePipe.transform(evento.dataFim, "dd/MM/yyyy");
+                evento.dataInicio = dataI;
+                evento.dataFim = dataF;
+
+                let latitude = element.val().local.replace('(',"").replace(')','').split(',');
+                let lat = parseFloat(latitude[0]);
+                let lng = parseFloat(latitude[1]);
+                window.setInterval(()=>{
+                    //cria uma foto do ponto no mapa                
+                evento.map =  "https://maps.googleapis.com/maps/api/staticmap?center=" +
+                lat + "," + lng +
+                "&zoom=15&size=400x400" +
+                "&markers=color:red%7Clabel:S%7C" +
+                lat + "," + lng +
+                "&maptype=roadmap&key=AIzaSyD16KWaZrWZ4imnVGIipkvlnvN6rI9s80g";
+                } , 1500);
+                listEventos.push(evento);
                 })
                 callback(listEventos);
             });

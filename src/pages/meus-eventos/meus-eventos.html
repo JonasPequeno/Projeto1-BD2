@@ -12,8 +12,7 @@
 
 <ion-content>
   <ion-list>
-      <ion-item-sliding *ngFor="let evento of listEventos" >
-          <ion-item >        
+          <ion-item  *ngFor="let evento of listEventos">        
                 <ion-card class="bold">
                     <img src="{{evento.map}}">                
                     <ion-item class="center">                     
@@ -31,19 +30,19 @@
 
                     <ion-item>
                         <button ion-button icon-start clear item-end (click)="openRoute(evento)">
-                        <ion-icon name="navigate"></ion-icon>
+                            <ion-icon name="navigate"></ion-icon>
                             Rota
+                        </button>
+                                              
+                        <button ion-button clear color="danger" (click)="remover(evento)">
+                            <ion-icon  item-start large ios="ios-trash" md="md-trash"></ion-icon>
+                            Excluir
                         </button>
                     </ion-item>
                     
 
                 </ion-card>
                
-          </ion-item>
-          
-          <ion-item-options>
-              <button ion-button (click)="remover(evento)"color="danger">Excluir</button>
-          </ion-item-options>
-      </ion-item-sliding>
+          </ion-item>            
   </ion-list>
 </ion-content>

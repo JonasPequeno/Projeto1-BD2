@@ -159,16 +159,16 @@ export class HomePage {
                 var info = new google.maps.InfoWindow( {
                   content : texto,
                 })
-                let marcador =  new google.maps.Marker({
-                  position : latlng,
-                  map : this.map,
-                  title : eventos[i].tema
-                })
-      
-                marcador.addListener('click' ,function(){
-                  info.open(this.map, marcador);
-                })
-                                
+                window.setInterval(()=>{
+                  var marcador =  new google.maps.Marker({
+                    position : latlng,
+                    map : this.map,
+                    title : eventos[i].tema
+                  })
+                  marcador.addListener('click' ,function(){
+                    info.open(this.map, marcador);
+                  })
+                },3000)                
           })         
       }
       

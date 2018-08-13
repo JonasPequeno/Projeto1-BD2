@@ -7,7 +7,8 @@ import { HomePage } from '../pages/home/home';
 import { AuthProvider } from '../provides/auth';
 import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
 import { PerfilPage } from '../pages/perfil/perfil';
-
+import { AllEventosPage } from '../pages/all-eventos/all-eventos';
+ 
 @Component({
   templateUrl: 'app.html'
 })
@@ -17,6 +18,7 @@ export class MyApp {
   public home  = HomePage;
   public login = LoginPage;
   public meusEventos = MeusEventosPage;
+  public todosEventos = AllEventosPage;
   public sair  = LoginPage;
   public isMenu: boolean = false;  
   
