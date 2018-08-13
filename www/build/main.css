@@ -25772,17 +25772,17 @@ ion-navbar.toolbar {
 
 page-login .bg-login {
   width: 100%;
-  height: 100%;
-  background-image: url("/assets/imgs/background.jpg");
+  background-image: url("../assets/imgs/background.jpg");
+  background-repeat: repeat-y;
   background-size: cover;
   background-position: center;
 }
 
 page-login .bg-registro {
   width: 100%;
-  height: 100;
-  background-image: url("/assets/imgs/background.jpg");
+  background-image: url("../assets/imgs/background.jpg");
   background-size: cover;
+  background-repeat: repeat-y;
   background-position: center;
 }
 

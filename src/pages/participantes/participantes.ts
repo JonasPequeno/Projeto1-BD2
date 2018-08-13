@@ -28,7 +28,7 @@ export class ParticipantesPage implements OnInit {
     let event = this.navParams.get('evento');
     console.log('evento recebido ' + event.tema);
 
-    this.eventProvider.getEventos((eventos) =>{
+    this.eventProvider.getEventosAll((eventos) =>{
       this.listEventos = eventos;
       console.log(this.listEventos);  
       this.listEventos.forEach(element => {
@@ -37,5 +37,6 @@ export class ParticipantesPage implements OnInit {
         }       
       });
     });
+
   }
 }

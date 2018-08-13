@@ -33,7 +33,7 @@ export class MyApp {
     });
   }
 
-  public trocaPagina (pagina) {
+  public trocaPagina (pagina) {    
     this.rootPage = pagina;
   }
   

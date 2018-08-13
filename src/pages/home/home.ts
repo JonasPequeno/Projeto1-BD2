@@ -6,6 +6,7 @@ import { EventosProvider } from '../../provides/eventos';
 import { ToastController, AlertController  } from 'ionic-angular';
 
 import { AuthProvider } from '../../provides/auth';
+import { interval } from 'rxjs';
 
 declare var google : any;
 
@@ -17,6 +18,7 @@ export class HomePage {
   private map : any;
   private evento = {id: '' , titulo : '', periodo : '', tema : '', local : '', usario : ''};
   private endereco;
+  private aux : boolean = false;
 
   constructor(public navCtrl: NavController, public platform : Platform,
     public geolocation : Geolocation,
@@ -32,17 +34,25 @@ export class HomePage {
   ngOnInit(){
     //espera a pagina carregar por completo
     this.platform.ready().then(() =>{
-     
+      this.marcaPontos();     
       //pega minha posição atual
       this.geolocation.getCurrentPosition()
       .then((result) =>{
         this.initMap(result.coords.latitude, result.coords.longitude);
-
+        let interval = setInterval(()=>{
+          if(!this.aux){
+            this.marcaPontos();
+            this.aux = true;
+          } 
+        
+        }, 2000);
+                    
       })
+
       .catch((err) =>{
         console.log(err);
       })
-      this.marcaPontos();
+      
     })
     
     //this.eventProvider.getEventos();
@@ -139,10 +149,10 @@ export class HomePage {
 
    public marcaPontos () {
      this.eventProvider.getEventosAll((eventos) => {
-       console.log('entoru no for' + eventos)
+       console.log('entrou no for' + eventos)
 
       for(let i=0; i<eventos.length; i++){
-          console.log('entoru no for' + eventos)
+          console.log('entrou no for' + eventos)
           let coo = eventos[i].local.replace('(','').replace(')','').split(',');      
           console.log(eventos);
           

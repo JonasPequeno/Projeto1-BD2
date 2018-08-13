@@ -17,7 +17,8 @@ export class AllEventosPage implements OnInit{
   
   private listEventos = [];
   private rua : any;
-  private status : boolean = true;
+  private status : boolean = false;
+  listParticipantes = [];
 
   constructor(
     public navCtrl: NavController, 
@@ -31,7 +32,6 @@ export class AllEventosPage implements OnInit{
   ngOnInit(): void {
     this.eventProvider.getEventosAll((eventos) =>{
       this.listEventos = eventos;
-      console.log('Eventos ' + eventos)
     });
      
     this.getDistanciaAll();
@@ -83,11 +83,38 @@ export class AllEventosPage implements OnInit{
 
   marcaPresenca(evento) {
     this.status = true;
-    evento.presenca = [];
-    evento.presenca.push(this.auth.getEmail());
-    console.log(evento.presenca);
+    console.log("entrou metodo");
     
-    this.eventProvider.editar(evento);
+
+    this.eventProvider.getEventosAll((eventos) =>{
+      console.log("entrou aq", eventos);
+      
+      this.listEventos = eventos;     
+      this.listEventos.forEach(element => {
+        console.log("entrou forzaun");
+        
+
+        if(element.id == evento.id) {
+          console.log("fodasse");
+
+          this.listParticipantes = [];
+          console.log(element.presenca);
+          
+
+          if (element.presenca != undefined) {
+            this.listParticipantes = element.presenca;
+          }
+
+          this.listParticipantes.push(this.auth.getEmail())
+          console.log('jhgjhghkhjjhhjhjjhjgkhfgjgh',this.listParticipantes);
+          
+          evento.presenca = this.listParticipantes; 
+          this.eventProvider.editar(evento);
+          
+          return true;
+        }       
+      });
+    });
 
   }
 

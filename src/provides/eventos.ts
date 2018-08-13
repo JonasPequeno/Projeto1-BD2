@@ -32,7 +32,7 @@ export class EventosProvider {
     }
 
     public editar(evento) {
-            
+        
         return firebase.database().ref('eventos/'+evento.id).set(evento);
     }
 
@@ -45,10 +45,6 @@ export class EventosProvider {
                 let emailUser = this.authProvider.getEmailUser();                       
                 if(element.val().usuario == this.authProvider.getEmailUser()) {
                     let evento = element.val();
-                    let dataI = this.datePipe.transform(evento.dataInicio, "dd/MM/yyyy");
-                    let dataF = this.datePipe.transform(evento.dataFim, "dd/MM/yyyy");
-                    evento.dataInicio = dataI;
-                    evento.dataFim = dataF;
 
                     let latitude = element.val().local.replace('(',"").replace(')','').split(',');
                     let lat = parseFloat(latitude[0]);
@@ -65,8 +61,8 @@ export class EventosProvider {
                     listEventos.push(evento);
                 }
             });
-            callback(listEventos);
         })
+        callback(listEventos);
     }
 
     public getEventosAll (callback) {
@@ -75,11 +71,6 @@ export class EventosProvider {
         eventos.on('value',(snapshot)=>{
             snapshot.forEach(element => {              
                 let evento = element.val();
-                let dataI = this.datePipe.transform(evento.dataInicio, "dd/MM/yyyy");
-                let dataF = this.datePipe.transform(evento.dataFim, "dd/MM/yyyy");
-                evento.dataInicio = dataI;
-                evento.dataFim = dataF;
-
                 let latitude = element.val().local.replace('(',"").replace(')','').split(',');
                 let lat = parseFloat(latitude[0]);
                 let lng = parseFloat(latitude[1]);
@@ -94,14 +85,15 @@ export class EventosProvider {
                 } , 1500);
                 listEventos.push(evento);
                 })
-                callback(listEventos);
             });
-           
+        callback(listEventos);
+        
     }
     
 
     //remove o evento
     public removeEventos(evento){
+
         alert(evento.id)
         firebase.database().ref('eventos/'+evento.id).remove();
     }

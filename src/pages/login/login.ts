@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AuthProvider } from '../../provides/auth';
 import { FirebaseProvider } from "../../provides/firebase";
 import { LoadingController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-import {MyApp} from '../../app/app.component';
+import { Keyboard } from '@ionic-native/keyboard';
 
 @IonicPage()
 
@@ -12,7 +12,8 @@ import {MyApp} from '../../app/app.component';
   selector: 'page-login',
   templateUrl: 'login.html',
 })
-export class LoginPage {
+export class LoginPage implements OnInit{
+  
   private login : boolean = true;
   private registro : boolean = false;
   private loginForm = {email : '', senha : ''};
@@ -24,9 +25,14 @@ export class LoginPage {
     public afProvider :AuthProvider,
     public fireProvader : FirebaseProvider,
     public loadCrtl : LoadingController,
-    public toastCrtl : ToastController
+    public toastCrtl : ToastController,
+    public keyboard : Keyboard
   
   ){}
+
+  ngOnInit(): void {
+    
+  }
 
 criaConta () {
   this.login = false;
