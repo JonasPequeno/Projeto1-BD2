@@ -4,6 +4,7 @@ import { EventosProvider } from '../../provides/eventos';
 import { EventoRotaPage } from '../evento-rota/evento-rota';
 import { Geolocation} from '@ionic-native/geolocation';
 import * as Geolib from 'geolib';
+import { AuthProvider } from '../../provides/auth';
 
 declare var google : any;
 
@@ -16,22 +17,25 @@ export class AllEventosPage implements OnInit{
   
   private listEventos = [];
   private rua : any;
+  private status : boolean = true;
 
   constructor(
     public navCtrl: NavController, 
     public navParams: NavParams,
     public eventProvider : EventosProvider,
-    public geolocation : Geolocation
+    public geolocation : Geolocation,
+    public auth : AuthProvider,
+
   ) {}
 
   ngOnInit(): void {
-    this.eventProvider.getEventos((eventos) =>{
+    this.eventProvider.getEventosAll((eventos) =>{
       this.listEventos = eventos;
+      console.log('Eventos ' + eventos)
     });
      
-    setInterval(()=>{
-      this.getDistanciaAll();
-    },2000)
+    this.getDistanciaAll();
+  
   }
 
   openRoute(evento) {
@@ -77,5 +81,14 @@ export class AllEventosPage implements OnInit{
     })
   }
 
+  marcaPresenca(evento) {
+    this.status = true;
+    evento.presenca = [];
+    evento.presenca.push(this.auth.getEmail());
+    console.log(evento.presenca);
+    
+    this.eventProvider.editar(evento);
+
+  }
 
 }

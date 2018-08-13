@@ -12,6 +12,7 @@ import { MeusEventosPage } from '../pages/meus-eventos/meus-eventos';
 import { PerfilPage } from '../pages/perfil/perfil';
 import { EventoRotaPage } from '../pages/evento-rota/evento-rota';
 import { AllEventosPage } from '../pages/all-eventos/all-eventos'
+import { ParticipantesPage } from '../pages/participantes/participantes';
 //importações do firebase e angular fire
 import { firebaseConfig } from '../configs/firebase';
 import { AngularFireModule } from 'angularfire2';
@@ -35,7 +36,8 @@ import { MyApp } from './app.component';
     MeusEventosPage,
     PerfilPage,
     EventoRotaPage,
-    AllEventosPage
+    AllEventosPage,
+    ParticipantesPage
   ],
   imports: [
     LoginPageModule,
@@ -53,7 +55,8 @@ import { MyApp } from './app.component';
     EventoModalPage,
     MeusEventosPage,
     EventoRotaPage,
-    AllEventosPage
+    AllEventosPage,
+    ParticipantesPage
 
   ],
   providers: [

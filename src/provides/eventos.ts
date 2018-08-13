@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import firebase from 'firebase';
+import firebase, { database } from 'firebase';
 import {  AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import {AuthProvider } from '../provides/auth'
 import { DatePipe } from '@angular/common';
@@ -29,6 +29,11 @@ export class EventosProvider {
             usuario : evento.usuario,
             id : evento.id
         });
+    }
+
+    public editar(evento) {
+            
+        return firebase.database().ref('eventos/'+evento.id).set(evento);
     }
 
     public getEventos (callback) {

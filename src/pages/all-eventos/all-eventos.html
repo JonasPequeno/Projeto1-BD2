@@ -34,6 +34,12 @@
                       </ion-item>
   
                       <ion-item>
+
+                         <button ion-button icon-start clear item-end >                           
+                           <ion-checkbox color="dark" (click)="marcaPresenca(evento)" checked="{{status}}" ></ion-checkbox>                                              
+                            Marca Presença
+                          </button>                        
+
                           <button ion-button icon-start clear item-end (click)="openRoute(evento)">
                           <ion-icon name="navigate"></ion-icon>
                             Rota

@@ -5,6 +5,7 @@ import { EventosProvider } from '../../provides/eventos';
 import { EventoRotaPage } from '../evento-rota/evento-rota'
 import { Geolocation } from '@ionic-native/geolocation';
 import * as Geolib from 'geolib';
+import { ParticipantesPage } from '../participantes/participantes';
 
 declare var google : any;
 
@@ -70,6 +71,10 @@ export class MeusEventosPage implements OnInit {
     let latlng = new google.maps.LatLng(lat,lng);
     let directions = {latitude : lat, longitude : lng}
     this.navCtrl.push(EventoRotaPage, {directions});
+  }
+
+  openParticipantes(evento) {
+    this.navCtrl.push(ParticipantesPage, {evento});
   }
 
   calculaDistancia(origem, destino) {
